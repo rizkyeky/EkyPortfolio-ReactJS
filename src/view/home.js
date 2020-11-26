@@ -1,20 +1,25 @@
-import logo from "../eky_logo.svg"
-import ig_logo from "../instagram.svg"
-import gh_logo from "../github.svg"
-import li_logo from "../linkedin.svg"
-import fv_logo from "../fiverr.svg"
-import fr_logo from "../freelancer.svg"
-import pr_logo from "../project.svg";
-import profile from "../profile.png"
+import eky_logo from "../assets/logo/eky_logo.svg"
+import ig_logo from "../assets/logo/instagram.svg";
+import gh_logo from "../assets/logo/github.svg";
+import li_logo from "../assets/logo/linkedin.svg";
+import fv_logo from "../assets/logo/fiverr.svg";
+import fr_logo from "../assets/logo/freelancer.svg";
+import pr_logo from "../assets/logo/project.svg";
+
+import eky_profile from "../assets/profile.png";
+
 import React from "react"
+
 import {
   Tab,
   Tabs,
   Typography,
   Box,
   Button,
-  ButtonBase,
 } from "@material-ui/core";
+
+import LogoButton from "./LogoButton"
+import Text from "./Text"
 
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
@@ -58,34 +63,26 @@ class Home extends React.Component {
             justifyContent="space-between"
             mx="10%"
             children={[
-              <img src={logo} width="50" height="50" alt="logo"></img>,
-              <Tabs aria-label="simple tabs example">
+              <img src={eky_logo} width="50" height="50" alt="logo"></img>,
+              <Tabs>
                 <Tab
                   label={
-                    <Box fontWeight={700} fontSize={18} color="text.primary">
-                      Skill
-                    </Box>
+                    <Text fontWeight={700} fontSize={18} color="text.primary" label="Skill"/>
                   }
                 />
                 <Tab
                   label={
-                    <Box fontWeight={700} fontSize={18} color="text.primary">
-                      Portfolio
-                    </Box>
+                    <Text fontWeight={700} fontSize={18} color="text.primary" label="Portfolio"/>
                   }
                 />
                 <Tab
                   label={
-                    <Box fontWeight={700} fontSize={18} color="text.primary">
-                      Contact
-                    </Box>
+                    <Text fontWeight={700} fontSize={18} color="text.primary" label="Contact"/>
                   }
                 />
                 <Tab
                   label={
-                    <Box fontWeight={700} fontSize={18} color="text.primary">
-                      Blog
-                    </Box>
+                    <Text fontWeight={700} fontSize={18} color="text.primary" label="Blog"/>
                   }
                 />
               </Tabs>,
@@ -141,7 +138,7 @@ class Home extends React.Component {
                 alignSelf="stretch"
                 children={
                   <img
-                    src={profile}
+                    src={eky_profile}
                     width="300"
                     height="400"
                     alt="profile"
@@ -153,187 +150,53 @@ class Home extends React.Component {
           <Box
             height={500}
             mx="10%"
-            mt={20}
-            // bgcolor="grey.300"
             children={[
-              <Box fontWeight={700} fontSize={36} color="text.primary">
-                My Repo and My Offices
+              <Box
+                my="30px"
+                fontWeight={700}
+                fontSize={36}
+                color="text.primary"
+              >
+                My Offices
               </Box>,
               <Box
                 display="flex"
                 flexDirection="row"
-                justifyContent="space-around"
+                justifyContent="space-between"
                 alignItems="center"
                 borderRadius="30px"
                 boxShadow="5px 5px 30px 0px rgba(0,0,0,0.1)"
-                bgcolor="common.white"
-                p="50px"
-                my="30px"
+                p="24px"
                 children={[
-                  <ButtonBase
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                    children={[
-                      <Box
-                        height={75}
-                        width={75}
-                        p="24px"
-                        children={
-                          <img
-                            src={ig_logo}
-                            width="75"
-                            height="75"
-                            alt="instagram"
-                          />
-                        }
-                      />,
-                      <Box
-                        fontFamily="Roboto Mono"
-                        fontWeight={700}
-                        fontSize={16}
-                        color="text.primary"
-                        pb="24px"
-                      >
-                        Instagram
-                      </Box>,
-                    ]}
+                  <LogoButton
+                    title="Instagram"
+                    logo={ig_logo}
+                    href="https://www.instagram.com/riz.eky/"
                   />,
-                  <ButtonBase
-                    style={{ display: "flex", flexDirection: "column" }}
-                    children={[
-                      <Box
-                        height={75}
-                        width={75}
-                        p="24px"
-                        children={
-                          <img
-                            src={gh_logo}
-                            width="75"
-                            height="75"
-                            alt="github"
-                          />
-                        }
-                      />,
-                      <Box
-                        fontFamily="Roboto Mono"
-                        fontWeight={700}
-                        fontSize={16}
-                        color="text.primary"
-                        pb="24px"
-                      >
-                        Github
-                      </Box>,
-                    ]}
+                  <LogoButton
+                    title="Github"
+                    logo={gh_logo}
+                    href="https://github.com/rizkyeky"
                   />,
-                  <ButtonBase
-                    style={{ display: "flex", flexDirection: "column" }}
-                    children={[
-                      <Box
-                        height={75}
-                        width={75}
-                        p="24px"
-                        children={
-                          <img
-                            src={li_logo}
-                            width="75"
-                            height="75"
-                            alt="linkedin"
-                          />
-                        }
-                      />,
-                      <Box
-                        fontFamily="Roboto Mono"
-                        fontWeight={700}
-                        fontSize={16}
-                        color="text.primary"
-                        pb="24px"
-                      >
-                        Linkedin
-                      </Box>,
-                    ]}
+                  <LogoButton
+                    title="Linkedin"
+                    logo={li_logo}
+                    href="https://www.linkedin.com/in/rizky-eky-980839171"
                   />,
-                  <ButtonBase
-                    style={{ display: "flex", flexDirection: "column" }}
-                    children={[
-                      <Box
-                        height={75}
-                        width={75}
-                        p="24px"
-                        children={
-                          <img
-                            src={fv_logo}
-                            width="75"
-                            height="75"
-                            alt="linkedin"
-                          />
-                        }
-                      />,
-                      <Box
-                        fontFamily="Roboto Mono"
-                        fontWeight={700}
-                        fontSize={16}
-                        color="text.primary"
-                        pb="24px"
-                      >
-                        Fiverr
-                      </Box>,
-                    ]}
+                  <LogoButton
+                    title="Fiverr"
+                    logo={fv_logo}
+                    href="https://www.fiverr.com/rizkyeky"
                   />,
-                  <ButtonBase
-                    style={{ display: "flex", flexDirection: "column" }}
-                    children={[
-                      <Box
-                        height={75}
-                        width={75}
-                        p="24px"
-                        children={
-                          <img
-                            src={fr_logo}
-                            width="75"
-                            height="75"
-                            alt="linkedin"
-                          />
-                        }
-                      />,
-                      <Box
-                        fontFamily="Roboto Mono"
-                        fontWeight={700}
-                        fontSize={16}
-                        color="text.primary"
-                        pb="24px"
-                      >
-                        Freelancer
-                      </Box>,
-                    ]}
+                  <LogoButton
+                    title="Freelancer"
+                    logo={fr_logo}
+                    href="https://www.freelancer.co.id/u/rizeky"
                   />,
-                  <ButtonBase
-                    style={{ display: "flex", flexDirection: "column" }}
-                    children={[
-                      <Box
-                        height={75}
-                        width={75}
-                        p="24px"
-                        children={
-                          <img
-                            src={pr_logo}
-                            width="75"
-                            height="75"
-                            alt="linkedin"
-                          />
-                        }
-                      />,
-                      <Box
-                        fontFamily="Roboto Mono"
-                        fontWeight={700}
-                        fontSize={16}
-                        color="text.primary"
-                        pb="24px"
-                      >
-                        Project.co.id
-                      </Box>,
-                    ]}
+                  <LogoButton
+                    title="Projects"
+                    logo={pr_logo}
+                    href="https://projects.co.id/public/browse_users/view/87101e/rizky-eky"
                   />,
                 ]}
               />,
@@ -360,6 +223,9 @@ class Home extends React.Component {
                     boxShadow="5px 5px 30px 0px rgba(0,0,0,0.1)"
                     bgcolor="common.white"
                     children={[
+                      <Box fontWeight={700} fontSize={24} color="text.primary">
+                        Programming Theory
+                      </Box>,
                       <Box fontWeight={700} fontSize={24} color="text.primary">
                         Programming Theory
                       </Box>,
