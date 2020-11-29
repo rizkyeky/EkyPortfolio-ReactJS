@@ -67,22 +67,42 @@ class Home extends React.Component {
               <Tabs>
                 <Tab
                   label={
-                    <Text fontWeight={700} fontSize={18} color="text.primary" label="Skill"/>
+                    <Text
+                      fontWeight={700}
+                      fontSize={18}
+                      color="text.primary"
+                      label="Skill"
+                    />
                   }
                 />
                 <Tab
                   label={
-                    <Text fontWeight={700} fontSize={18} color="text.primary" label="Portfolio"/>
+                    <Text
+                      fontWeight={700}
+                      fontSize={18}
+                      color="text.primary"
+                      label="Portfolio"
+                    />
                   }
                 />
                 <Tab
                   label={
-                    <Text fontWeight={700} fontSize={18} color="text.primary" label="Contact"/>
+                    <Text
+                      fontWeight={700}
+                      fontSize={18}
+                      color="text.primary"
+                      label="Contact"
+                    />
                   }
                 />
                 <Tab
                   label={
-                    <Text fontWeight={700} fontSize={18} color="text.primary" label="Blog"/>
+                    <Text
+                      fontWeight={700}
+                      fontSize={18}
+                      color="text.primary"
+                      label="Blog"
+                    />
                   }
                 />
               </Tabs>,
@@ -109,15 +129,24 @@ class Home extends React.Component {
                     component="div"
                     align="left"
                     children={[
-                      <Box fontWeight={300} fontSize={24} color="text.primary">
-                        Hi There !
-                      </Box>,
-                      <Box fontSize={36} fontWeight={700} color="text.primary">
-                        I'm Rizky Eky
-                      </Box>,
-                      <Box fontWeight={400} fontSize={36} color="text.primary">
-                        Mobile Development
-                      </Box>,
+                      <Text
+                        fontWeight={300}
+                        fontSize={24}
+                        color="text.primary"
+                        label="Hi There !"
+                      />,
+                      <Text
+                        fontSize={36}
+                        fontWeight={700}
+                        color="text.primary"
+                        label="I'm Rizky Eky"
+                      />,
+                      <Text
+                        fontSize={36}
+                        fontWeight={400}
+                        color="text.primary"
+                        label="Mobile Development"
+                      />,
                     ]}
                   />,
                   <Button
@@ -206,9 +235,12 @@ class Home extends React.Component {
             height={500}
             mx="10%"
             children={[
-              <Box fontWeight={700} fontSize={36} color="text.primary">
-                My Skill
-              </Box>,
+              <Text
+                fontSize={36}
+                fontWeight={700}
+                color="text.primary"
+                label="My Skill"
+              />,
               <Box
                 display="flex"
                 flexDirection="row"
@@ -216,19 +248,39 @@ class Home extends React.Component {
                 children={[
                   <Box
                     display="flex"
-                    flexDirection="row"
+                    flexDirection="column"
                     justifyContent="space-around"
                     alignItems="center"
                     borderRadius="30px"
                     boxShadow="5px 5px 30px 0px rgba(0,0,0,0.1)"
                     bgcolor="common.white"
                     children={[
-                      <Box fontWeight={700} fontSize={24} color="text.primary">
-                        Programming Theory
-                      </Box>,
-                      <Box fontWeight={700} fontSize={24} color="text.primary">
-                        Programming Theory
-                      </Box>,
+                      <Text
+                        fontSize={24}
+                        fontWeight={700}
+                        color="text.primary"
+                        label="Programming Theory"
+                      />,
+                      <Box
+                        display="flex"
+                        flexDirection="column"
+                        justifyContent="space-around"
+                        alignItems="center"
+                        children={[
+                          <Text
+                            fontSize={18}
+                            fontWeight={700}
+                            color="text.primary"
+                            label="Algorithm"
+                          />,
+                          <Text
+                            fontSize={16}
+                            fontWeight={400}
+                            color="text.primary"
+                            label="Sorting, Searching, Greedy, Dynamic Programming,Branch and Bound"
+                          />,
+                        ]}
+                      />,
                     ]}
                   />,
                   <Box
