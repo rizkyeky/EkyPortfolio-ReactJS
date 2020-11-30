@@ -52,6 +52,35 @@ const theme = createMuiTheme({
 });
 
 class Home extends React.Component {
+
+  constructor() {
+    super();
+    this.listProgrammingSkill = [
+      {
+        name: "Algorithm",
+        desc:
+          "Sorting, Searching, Greedy, Dynamic Programming,Branch and Bound",
+        val: 85,
+      },
+      {
+        name: "Data Structure",
+        desc: "List, Stack, Queue, Map, Tree, Graph",
+        val: 80,
+      },
+      {
+        name: "Object-Oriented Programming",
+        desc:
+          "Inheritance, Encapsulation, Polymorphism, Abstraction, Generic Type",
+        val: 90,
+      },
+      {
+        name: "Other",
+        desc: "Complexity, Database, Maths, etc.",
+        val: 70,
+      },
+    ];
+  }
+
   render() {
     return (
       <div className="Home">
@@ -247,15 +276,17 @@ class Home extends React.Component {
                 justifyContent="space-around"
                 children={[
                   <Box
+                    p="24px"
+                    height={400}
                     display="flex"
                     flexDirection="column"
                     justifyContent="space-around"
-                    alignItems="center"
+                    alignItems="left"
                     borderRadius="30px"
                     boxShadow="5px 5px 30px 0px rgba(0,0,0,0.1)"
-                    bgcolor="common.white"
                     children={[
                       <Text
+                        textAlign="left"
                         fontSize={24}
                         fontWeight={700}
                         color="text.primary"
@@ -264,22 +295,13 @@ class Home extends React.Component {
                       <Box
                         display="flex"
                         flexDirection="column"
-                        justifyContent="space-around"
-                        alignItems="center"
-                        children={[
-                          <Text
-                            fontSize={18}
-                            fontWeight={700}
-                            color="text.primary"
-                            label="Algorithm"
-                          />,
-                          <Text
-                            fontSize={16}
-                            fontWeight={400}
-                            color="text.primary"
-                            label="Sorting, Searching, Greedy, Dynamic Programming,Branch and Bound"
-                          />,
-                        ]}
+                        justifyContent="space-between"
+                        textAlign="left"
+                        height={300}
+                        children={Array.from(
+                          this.listProgrammingSkill,
+                          (v, _) => textBox(v.name, v.desc)
+                        )}
                       />,
                     ]}
                   />,
@@ -301,6 +323,31 @@ class Home extends React.Component {
       </div>
     );
   }
+}
+
+function textBox(title, subtitle) {
+  return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-around"
+      textAlign="left"
+      children={[
+        <Text
+          fontSize={18}
+          fontWeight={700}
+          color="text.primary"
+          label={title}
+        />,
+        <Text
+          fontSize={16}
+          fontWeight={400}
+          color="text.primary"
+          label={subtitle}
+        />,
+      ]}
+    />
+  );
 }
 
 export default Home;
