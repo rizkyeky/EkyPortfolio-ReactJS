@@ -8,7 +8,14 @@ import pr_logo from "../assets/logo/project.svg";
 
 import eky_profile from "../assets/profile.png";
 
+import py_logo from "../assets/logo/python.png";
+import dart_logo from "../assets/logo/dart.png";
+import js_logo from "../assets/logo/js.png";
+import cpp_logo from "../assets/logo/cpp.png";
+
 import React from "react"
+import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 import {
   Tab,
@@ -55,7 +62,7 @@ class Home extends React.Component {
 
   constructor() {
     super();
-    this.listProgrammingSkill = [
+    this.listprogrammingConcept = [
       {
         name: "Algorithm",
         desc:
@@ -65,18 +72,40 @@ class Home extends React.Component {
       {
         name: "Data Structure",
         desc: "List, Stack, Queue, Map, Tree, Graph",
-        val: 80,
+        val: 90,
       },
       {
         name: "Object-Oriented Programming",
         desc:
           "Inheritance, Encapsulation, Polymorphism, Abstraction, Generic Type",
-        val: 90,
+        val: 95,
       },
       {
         name: "Other",
         desc: "Complexity, Database, Maths, etc.",
-        val: 70,
+        val: 80,
+      },
+    ];
+    this.listProgrammingLang = [
+      {
+        name: "Dart",
+        val: 95,
+        img: dart_logo,
+      },
+      {
+        name: "Javascript",
+        val: 85,
+        img: js_logo,
+      },
+      {
+        name: "Python",
+        val: 90,
+        img: py_logo,
+      },
+      {
+        name: "C/C++",
+        val: 80,
+        img: cpp_logo,
       },
     ];
   }
@@ -273,11 +302,12 @@ class Home extends React.Component {
               <Box
                 display="flex"
                 flexDirection="row"
-                justifyContent="space-around"
+                justifyContent="space-between"
                 children={[
                   <Box
                     p="24px"
-                    height={400}
+                    height={500}
+                    width="50%"
                     display="flex"
                     flexDirection="column"
                     justifyContent="space-around"
@@ -297,23 +327,45 @@ class Home extends React.Component {
                         flexDirection="column"
                         justifyContent="space-between"
                         textAlign="left"
-                        height={300}
+                        height={400}
                         children={Array.from(
-                          this.listProgrammingSkill,
-                          (v, _) => textBox(v.name, v.desc)
+                          this.listprogrammingConcept,
+                          (v, _) => conceptBox(v)
                         )}
                       />,
                     ]}
                   />,
                   <Box
+                    p="24px"
                     display="flex"
-                    flexDirection="row"
-                    justifyContent="space-around"
-                    alignItems="center"
+                    flexDirection="column"
+                    justifyContent="center"
+                    alignItems="left"
                     borderRadius="30px"
                     boxShadow="5px 5px 30px 0px rgba(0,0,0,0.1)"
-                    bgcolor="common.white"
-                    // children={}
+                    height={500}
+                    width="40%"
+                    children={[
+                      <Text
+                        textAlign="left"
+                        fontSize={24}
+                        fontWeight={700}
+                        color="text.primary"
+                        label="Programming Languages"
+                      />,
+                      <Box
+                        display="flex"
+                        flexDirection="column"
+                        flexWrap="wrap"
+                        justifyContent="space-between"
+                        alignContent="space-around"
+                        alignItems="center"
+                        height={450}
+                        children={Array.from(this.listProgrammingLang, (v, _) =>
+                          langBox(v)
+                        )}
+                      />,
+                    ]}
                   />,
                 ]}
               />,
@@ -325,25 +377,83 @@ class Home extends React.Component {
   }
 }
 
-function textBox(title, subtitle) {
+function langBox(programmingLang) {
   return (
     <Box
       display="flex"
       flexDirection="column"
-      justifyContent="space-around"
-      textAlign="left"
+      justifyContent="center"
+      alignItems="center"
+      borderRadius="30px"
+      height={200}
+      width={150}
+      boxShadow="5px 5px 20px 0px rgba(0,0,0,0.1)"
       children={[
-        <Text
-          fontSize={18}
-          fontWeight={700}
-          color="text.primary"
-          label={title}
+        <Box
+          height={100}
+          width={100}
+          children={
+            <CircularProgressbarWithChildren
+              value={programmingLang.val}
+              styles={buildStyles({
+                pathColor: "#19D9B6",
+                textColor: "#424B54",
+              })}
+              children={
+                <img
+                  src={programmingLang.img}
+                  width="50"
+                  height="50"
+                  alt={programmingLang.name}
+                />
+              }
+            />
+          }
         />,
-        <Text
-          fontSize={16}
-          fontWeight={400}
-          color="text.primary"
-          label={subtitle}
+        <Text label={programmingLang.name} color="text.primary" />,
+        <Text label={`${programmingLang.val}%`} color="text.primary" />,
+      ]}
+    />
+  );
+}
+
+function conceptBox(programmingConcept) {
+  return (
+    <Box
+      display="flex"
+      flexDirection="row"
+      justifyContent="space-between"
+      height={81}
+      py="12px"
+      children={[
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          width={2000}
+          textAlign="left"
+          children={[
+            <Text
+              fontSize={18}
+              fontWeight={700}
+              color="text.primary"
+              label={programmingConcept.name}
+            />,
+            <Text
+              fontSize={16}
+              fontWeight={400}
+              color="text.primary"
+              label={programmingConcept.desc}
+            />,
+          ]}
+        />,
+        <CircularProgressbar
+          value={programmingConcept.val}
+          text={`${programmingConcept.val}%`}
+          styles={buildStyles({
+            pathColor: "#19D9B6",
+            textColor: "#424B54",
+          })}
         />,
       ]}
     />
