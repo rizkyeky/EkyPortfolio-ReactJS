@@ -234,8 +234,8 @@ class Home extends React.Component {
               />,
             ]}
           />
+          <Box height={150} />
           <Box
-            height={500}
             mx="10%"
             children={[
               <Box
@@ -289,16 +289,18 @@ class Home extends React.Component {
               />,
             ]}
           />
+          <Box height={150} />
           <Box
-            height={500}
             mx="10%"
             children={[
-              <Text
-                fontSize={36}
+              <Box
+                my="30px"
                 fontWeight={700}
+                fontSize={36}
                 color="text.primary"
-                label="My Skill"
-              />,
+              >
+                My Skill
+              </Box>,
               <Box
                 display="flex"
                 flexDirection="row"
@@ -339,12 +341,12 @@ class Home extends React.Component {
                     p="24px"
                     display="flex"
                     flexDirection="column"
-                    justifyContent="center"
+                    justifyContent="space-around"
                     alignItems="left"
                     borderRadius="30px"
                     boxShadow="5px 5px 30px 0px rgba(0,0,0,0.1)"
                     height={500}
-                    width="40%"
+                    width="35%"
                     children={[
                       <Text
                         textAlign="left"
@@ -360,7 +362,7 @@ class Home extends React.Component {
                         justifyContent="space-between"
                         alignContent="space-around"
                         alignItems="center"
-                        height={450}
+                        height={425}
                         children={Array.from(this.listProgrammingLang, (v, _) =>
                           langBox(v)
                         )}
@@ -382,7 +384,7 @@ function langBox(programmingLang) {
     <Box
       display="flex"
       flexDirection="column"
-      justifyContent="center"
+      justifyContent="space-center"
       alignItems="center"
       borderRadius="30px"
       height={200}
@@ -390,6 +392,7 @@ function langBox(programmingLang) {
       boxShadow="5px 5px 20px 0px rgba(0,0,0,0.1)"
       children={[
         <Box
+          my="24px"
           height={100}
           width={100}
           children={
@@ -411,7 +414,11 @@ function langBox(programmingLang) {
           }
         />,
         <Text label={programmingLang.name} color="text.primary" />,
-        <Text label={`${programmingLang.val}%`} color="text.primary" />,
+        <Text
+          label={`${programmingLang.val}%`}
+          color="text.primary"
+          fontWeight={700}
+        />,
       ]}
     />
   );
