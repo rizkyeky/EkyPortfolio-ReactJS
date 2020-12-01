@@ -373,6 +373,30 @@ class Home extends React.Component {
               />,
             ]}
           />
+          <Box height={150} />,
+          <Box
+            mx="10%"
+            children={[
+              <Box
+                my="30px"
+                fontWeight={700}
+                fontSize={36}
+                color="text.primary"
+              >
+                My Art
+              </Box>,
+              <Box
+                p="24px"
+                height={500}
+                display="flex"
+                flexDirection="column"
+                justifyContent="space-around"
+                alignItems="left"
+                borderRadius="30px"
+                boxShadow="5px 5px 30px 0px rgba(0,0,0,0.1)"
+              />,
+            ]}
+          />
         </ThemeProvider>
       </div>
     );
