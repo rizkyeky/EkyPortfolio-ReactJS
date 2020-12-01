@@ -13,6 +13,10 @@ import dart_logo from "../assets/logo/dart.png";
 import js_logo from "../assets/logo/js.png";
 import cpp_logo from "../assets/logo/cpp.png";
 
+import pf_anim from "../assets/portfolio/animationtest-app.png";
+import pf_elec from "../assets/portfolio/election-app.png";
+import pf_flut from "../assets/portfolio/flutix-app.png";
+
 import React from "react"
 import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -23,6 +27,7 @@ import {
   Typography,
   Box,
   Button,
+  ButtonBase,
 } from "@material-ui/core";
 
 import LogoButton from "./LogoButton"
@@ -49,9 +54,6 @@ const theme = createMuiTheme({
       primary: "#424B54",
       secondary: "#fff",
     },
-    // common: {
-    //   white
-    // }
   },
   typography: {
     fontFamily: ["Roboto Mono", "monospace"].join(","),
@@ -106,6 +108,23 @@ class Home extends React.Component {
         name: "C/C++",
         val: 80,
         img: cpp_logo,
+      },
+    ];
+    this.listPortfolio = [
+      {
+        name: "FluTIX App",
+        img: pf_flut,
+        link: "https://github.com/rizkyeky/FluTIX-Flutter",
+      },
+      {
+        name: "Election Viewer App",
+        img: pf_elec,
+        link: "https://github.com/rizkyeky/ElectionViewer-Flutter",
+      },
+      {
+        name: "Animation App",
+        img: pf_anim,
+        link: "https://github.com/rizkyeky/Animation-Flutter",
       },
     ];
   }
@@ -389,11 +408,15 @@ class Home extends React.Component {
                 p="24px"
                 height={500}
                 display="flex"
-                flexDirection="column"
+                flexWrap="wrap"
+                flexDirection="row"
                 justifyContent="space-around"
-                alignItems="left"
+                alignItems="start"
                 borderRadius="30px"
                 boxShadow="5px 5px 30px 0px rgba(0,0,0,0.1)"
+                children={Array.from(this.listPortfolio, (v, _) =>
+                  portfolioBox(v)
+                )}
               />,
             ]}
           />
@@ -401,6 +424,39 @@ class Home extends React.Component {
       </div>
     );
   }
+}
+
+function portfolioBox(portfolio) {
+  return (
+    <Box
+      height="360px"
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+      children={[
+        <ButtonBase
+          // href={portfolio.link}
+          target="_blank"
+          children={
+            <Box
+              width="300px"
+              height="300px"
+              borderRadius="30px"
+              boxShadow="5px 5px 15px 0px rgba(0,0,0,0.1)"
+              children={
+                <img
+                  src={portfolio.img}
+                  alt={portfolio.name}
+                  style={{ width: 300, height: 300, borderRadius: 30 }}
+                />
+              }
+            />
+          }
+        />,
+        <Text color="text.primary" fontWeight={700} label={portfolio.name} />,
+      ]}
+    />
+  );
 }
 
 function langBox(programmingLang) {
